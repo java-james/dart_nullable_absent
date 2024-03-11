@@ -3,6 +3,16 @@ description: Absent value for nullable field
 version: 1.0.0
 repository: https://github.com/chalermpong/dart_nullable_absent
 
+platforms:
+  android:
+  ios:
+  linux:
+  macos:
+  web:
+  windows:
+
+issue_tracker: https://github.com/chalermpong/dart_nullable_absent/issues
+
 environment:
   sdk: ^3.3.0
 
