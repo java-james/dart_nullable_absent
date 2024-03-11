@@ -70,7 +70,7 @@ MyData copyWith({
 final dataWithNewName = data.copyWith(name: $("new_name"));
 print("dataWithNewName: $dataWithNewName");
 ```
-But beware, it doesn't work correctly with `null`. Explicit type is needed otherwise it will cause 
+**Caution** it doesn't work correctly with `null`. Explicit type is needed otherwise it will cause 
 runtime error.
 ```dart
   //TODO: Don't know why explicit type is needed here
