@@ -1,6 +1,6 @@
 name: nullable_absent
 description: Absent value for nullable field
-version: 1.0.0
+version: 1.0.1
 repository: https://github.com/chalermpong/dart_nullable_absent
 
 platforms:
