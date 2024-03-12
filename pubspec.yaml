@@ -1,6 +1,6 @@
 name: nullable_absent
-description: Absent value for nullable field
-version: 1.0.1
+description: Library provides a simple class that represents `absent` value.
+version: 1.0.2
 repository: https://github.com/chalermpong/dart_nullable_absent
 
 platforms:
