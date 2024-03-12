@@ -6,13 +6,8 @@ void main() {
   final dataWithNewName = data.copyWith(name: $("new_name"));
   print("dataWithNewName: $dataWithNewName");
 
-  //TODO: Don't know why explicit type is needed here
   final dataWithNullName = data.copyWith(name: $<String>(null));
   print("dataWithNullName: $dataWithNullName");
-
-  // If using original class name, explicit type is not needed
-  final dataWithNullNameLong = data.copyWith(name: NullableAbsent(null));
-  print("dataWithNullNameLong: $dataWithNullNameLong");
 
   final dataWithNewId = data.copyWith(id: "new_id");
   print("dataWithNewId: $dataWithNewId");
@@ -30,9 +25,7 @@ class MyData {
     String? id,
     $<String> name = const $.absent(),
   }) {
-    return MyData(
-        id: id ?? this.id,
-        name: name.replace(oldValue: this.name));
+    return MyData(id: id ?? this.id, name: $(this.name).apply(name));
   }
 
   @override

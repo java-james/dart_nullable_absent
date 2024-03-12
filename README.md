@@ -11,7 +11,7 @@ method for class that contains nullable field.
 
 ```yaml
 dependencies:
-  nullable_absent: ^1.0.0
+  nullable_absent: ^2.0.0
 ```
 
 ## Usage
@@ -41,15 +41,15 @@ With `nullable_absent`, we can distinguish between *set to null* or *use old val
 ```dart
 MyData copyWith({
     String? id,
-    NullableAbsent<String> name,
+    NullableAbsent<String> name = const NullableAbsent.absent(),
 }) {
   return MyData(
       id: id ?? this.id, 
-      name: name.replace(oldValue: this.name),
+      name: NullableAbsent(this.name).apply(name),
   );
 }
 ```
-`replace(oldValue)` is a convenient method for creating the result value.
+`apply(newValue)` is a convenient method for creating the result value.
 
 ## Additional information
 
@@ -57,23 +57,16 @@ You can use `typedef` to make code shorter.
 ```dart
 typedef $<T> = NullableAbsent<T>
 
+// copyWith code
 MyData copyWith({
   String? id,
-  $<String> name,
+  $<String> name = const $.absent(),
 }) {
   return MyData(
-    id: id ?? this.id,
-    name: name.replace(oldValue: this.name),
-  );
+      id: id ?? this.id, 
+      name: $(this.name).apply(name));
 }
 
+// Usage
 final dataWithNewName = data.copyWith(name: $("new_name"));
-print("dataWithNewName: $dataWithNewName");
-```
-**Caution** it doesn't work correctly with `null`. Explicit type is needed otherwise it will cause 
-runtime error.
-```dart
-  //TODO: Don't know why explicit type is needed here
-  final dataWithNullName = data.copyWith(name: $<String>(null));
-  print("dataWithNullName: $dataWithNullName");
 ```

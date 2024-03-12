@@ -22,8 +22,7 @@ class MyData {
     NullableAbsent<String> name = const NullableAbsent.absent(),
   }) {
     return MyData(
-        id: id ?? this.id,
-        name: name.replace(oldValue: this.name));
+        id: id ?? this.id, name: NullableAbsent(this.name).apply(name));
   }
 
   @override
