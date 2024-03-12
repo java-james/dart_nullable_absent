@@ -1,3 +1,7 @@
+## 2.0.0
+
+- [BREAKING] Revise API
+
 ## 1.0.2
 
 - Improve documentation.
