@@ -1,4 +1,5 @@
 name: undefinable
+version: 0.1.0
 description: Distinguish between defined and undefined values in Dart.
 repository: https://github.com/java-james/undefinable
 
