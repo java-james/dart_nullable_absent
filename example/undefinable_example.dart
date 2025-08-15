@@ -1,11 +1,11 @@
-import 'package:nullable_absent/nullable_absent.dart';
+import 'package:undefinable/undefinable.dart';
 
 void main() {
   final data = MyData(id: "id", name: "name");
   print("data: $data");
-  final dataWithNewName = data.copyWith(name: NullableAbsent("new_name"));
+  final dataWithNewName = data.copyWith(name: Undefinable("new_name"));
   print("dataWithNewName: $dataWithNewName");
-  final dataWithNullName = data.copyWith(name: NullableAbsent(null));
+  final dataWithNullName = data.copyWith(name: Undefinable(null));
   print("dataWithNullName: $dataWithNullName");
   final dataWithNewId = data.copyWith(id: "new_id");
   print("dataWithNewId: $dataWithNewId");
@@ -19,10 +19,10 @@ class MyData {
 
   MyData copyWith({
     String? id,
-    NullableAbsent<String> name = const NullableAbsent.absent(),
+    Undefinable<String?> name = const Undefinable.undefined(),
   }) {
     return MyData(
-        id: id ?? this.id, name: NullableAbsent(this.name).apply(name));
+        id: id ?? this.id, name: name.valueOr(this.name));
   }
 
   @override

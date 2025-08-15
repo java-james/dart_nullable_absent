@@ -1,4 +1,4 @@
-import 'package:nullable_absent/nullable_absent.dart';
+import 'package:undefinable/undefinable.dart';
 
 void main() {
   final data = MyData(id: "id", name: "name");
@@ -6,14 +6,14 @@ void main() {
   final dataWithNewName = data.copyWith(name: $("new_name"));
   print("dataWithNewName: $dataWithNewName");
 
-  final dataWithNullName = data.copyWith(name: $<String>(null));
+  final dataWithNullName = data.copyWith(name: Undefinable<String?>(null));
   print("dataWithNullName: $dataWithNullName");
 
   final dataWithNewId = data.copyWith(id: "new_id");
   print("dataWithNewId: $dataWithNewId");
 }
 
-typedef $<T> = NullableAbsent<T>;
+typedef $<T> = Undefinable<T>;
 
 class MyData {
   final String id;
@@ -23,9 +23,9 @@ class MyData {
 
   MyData copyWith({
     String? id,
-    $<String> name = const $.absent(),
+    Undefinable<String?> name = const Undefinable.undefined(),
   }) {
-    return MyData(id: id ?? this.id, name: $(this.name).apply(name));
+    return MyData(id: id ?? this.id, name: name.valueOr(this.name));
   }
 
   @override

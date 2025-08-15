@@ -1,7 +1,6 @@
-name: nullable_absent
-description: Library provides a simple class that represents `absent` value.
-version: 2.0.0
-repository: https://github.com/chalermpong/dart_nullable_absent
+name: undefinable
+description: Distinguish between defined and undefined values in Dart.
+repository: https://github.com/java-james/undefinable
 
 platforms:
   android:
@@ -11,15 +10,13 @@ platforms:
   web:
   windows:
 
-issue_tracker: https://github.com/chalermpong/dart_nullable_absent/issues
+issue_tracker: https://github.com/java-james/undefinable/issues
 
 environment:
   sdk: ^3.3.0
 
-# Add regular dependencies here.
 dependencies:
-  # path: ^1.8.0
 
 dev_dependencies:
-  lints: ^3.0.0
+  lints: ^6.0.0
   test: ^1.24.0
